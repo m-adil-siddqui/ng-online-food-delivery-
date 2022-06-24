@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Create New Category</h2>
+<form class="example-form" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+ <mat-dialog-content class="mat-typography">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input type="text" formControlName="title" matInput placeholder="Piza" required>
+          <mat-error>You must enter the value</mat-error> 
+        </mat-form-field>
+  
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="desc" placeholder="description..."></textarea>
+          </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" type="submit" [disabled]="!categoryForm.valid" cdkFocusInitial>Create</button>
+  </mat-dialog-actions>
+</form>

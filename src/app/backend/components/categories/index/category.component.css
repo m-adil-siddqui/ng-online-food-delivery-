@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+  }
+
+.mat-table {
+    background: #f9fafb;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    color: black;
+}
+/* .mat-row, mat-header-row, mat-footer-row, 
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+}  */
+
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color: darkgray;
+}
+.mat-paginator {
+    background: #f9fafb;
+}
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+    color: black;
+}
