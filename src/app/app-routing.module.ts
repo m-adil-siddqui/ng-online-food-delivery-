@@ -7,6 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path:'login',
+    loadChildren: () => import(`./backend/components/auth/signin/signin.module`).then(m => m.SigninModule)
+  },
+  {
     path:'admin',
     component:AdminLayoutComponent,
     children:[
@@ -18,7 +22,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [],
+  // declarations: [],
   imports: [
     RouterModule.forRoot(routes)
   ],

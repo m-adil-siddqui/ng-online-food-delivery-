@@ -9,24 +9,26 @@ import { Observable, throwError } from 'rxjs';
 })
 export class HttpService {
   
-  private baseUrl = `http://localhost:3000/api/`;
+  private baseUrl = `http://localhost:9100/api/`;
   private AUTH_TOKEN = 'token';
 
   constructor(private _http: HttpClient) { }
 
-  post(url: string, data: Category):Observable<any>{
+  post(url: string, data: any):Observable<any>{
     // const data = {params, headers: this.getAuthHeader()};
     return this._http.post(this.baseUrl+url, data);
   }
+
+
   get(url:string, params?: any):Observable<any>
   {
-    const data = {params, headers:this.getAuthHeader()};
+    const data = {params};
     return this._http.get(this.baseUrl + url, data).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   delete(url:string, params?: any):Observable<any>
   {
-    const data = {params, headers:this.getAuthHeader()};
+    const data = {params};
     return this._http.delete(this.baseUrl + url, data).pipe(catchError(this.errorHandler.bind(this)));
   }
 
@@ -56,10 +58,10 @@ export class HttpService {
   }
 
 
-  private getAuthHeader():{[header:string]:string | string[];}
-  {
-    return {
-      Authorization: `Bearer ${localStorage.getItem(this.AUTH_TOKEN)}`
-    }
-  }
+  // private getAuthHeader():{[header:string]:string | string[];}
+  // {
+  //   return {
+  //     Authorization: `Bearer ${localStorage.getItem(this.AUTH_TOKEN)}`
+  //   }
+  // }
 }
