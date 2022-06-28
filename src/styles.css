@@ -12,6 +12,16 @@
     -webkit-animation: spin .6s linear infinite; /* Safari */
     animation: spin .6s linear infinite;
   }
+
+  .btn-loader{
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #FF3D57;
+    width: 27px;
+    height: 27px;
+    -webkit-animation: spin .6s linear infinite; /* Safari */
+    animation: spin .6s linear infinite;
+  }
   
   /* Safari */
   @-webkit-keyframes spin {
@@ -43,4 +53,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .snackbar-color{
   background: #424242;
   color: #f3f3f3;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 100%;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgb(89 89 89 / 90%); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }

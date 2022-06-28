@@ -2,7 +2,7 @@ import { Category } from './../models/category';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators'
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class HttpService {
   private AUTH_TOKEN = 'token';
 
   constructor(private _http: HttpClient) { }
+ 
 
   post(url: string, data: any):Observable<any>{
     // const data = {params, headers: this.getAuthHeader()};

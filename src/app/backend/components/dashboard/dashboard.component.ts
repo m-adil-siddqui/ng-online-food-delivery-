@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getAuthenticateUser } from 'src/app/config/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  _authenticateUser = getAuthenticateUser();
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log('dashboard')
+    console.log(this._authenticateUser.full_name)
+
   }
 
 }
