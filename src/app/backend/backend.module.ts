@@ -16,7 +16,9 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { FilePondModule, registerPlugin } from 'ngx-filepond';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
+// import { CreateProductModule } from './components/product/create-product/create-product.module';
 @NgModule({
   declarations: [
     AdminLayoutComponent,
@@ -24,9 +26,11 @@ import {MatMenuModule} from '@angular/material/menu';
     FooterComponent,
     DashboardComponent,
     CategoryComponent,
-    CategoryDialogComponent
+    CategoryDialogComponent,
+    CreateProductComponent
   ],
   imports: [
+    FilePondModule,
     CommonModule,
     RouterModule,
     MatDialogModule,
