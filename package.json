@@ -23,6 +23,7 @@
     "@ngrx/store": "^13.0.2",
     "@ngrx/store-devtools": "^13.1.0",
     "filepond": "^4.30.4",
+    "filepond-plugin-image-preview": "^4.6.11",
     "ngx-filepond": "^6.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilePondOptions } from 'filepond';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -13,8 +13,21 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  productForm = new FormGroup({
+    title   : new FormControl(null),
+    tagline : new FormControl(null),
+    price    : new FormControl(null),
+    discount : new FormControl(null),
+    details : new FormControl(null),
+  });
+
+  onSubmit(){
+    console.log(this.productForm.value)
+  }
+
   pondOptions: FilePondOptions = {
     allowMultiple: true,
+    allowProcess:false,
     labelIdle: 'Drop files here...'
   }
 
@@ -32,7 +45,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   pondHandleAddFile(event: any) {
-    console.log('A file was added', event);
+    console.log('A file was added', event.getFile);
   }
 
   pondHandleActivateFile(event: any) {

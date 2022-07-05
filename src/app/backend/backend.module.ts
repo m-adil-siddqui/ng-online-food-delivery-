@@ -18,7 +18,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { FilePondModule, registerPlugin } from 'ngx-filepond';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
-// import { CreateProductModule } from './components/product/create-product/create-product.module';
+import * as FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+registerPlugin(FilePondPluginImagePreview);
+
+
 @NgModule({
   declarations: [
     AdminLayoutComponent,
