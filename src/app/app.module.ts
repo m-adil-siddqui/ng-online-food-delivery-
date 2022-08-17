@@ -14,16 +14,18 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { TokenService } from './services/token.service';
+import { FrontModule } from './front/front.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BackendModule,
+    FrontModule,
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot(rootReducer),

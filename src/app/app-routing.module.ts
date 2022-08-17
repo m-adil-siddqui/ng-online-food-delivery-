@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CanActivateRouteGuard } from './guards/can-activate-route.guard';
 import { GuestGuardRouteGuard } from './guards/guest-guard-route.guard';
 import { CreateProductComponent } from './backend/components/product/create-product/create-product.component';
+import { FrontLayoutComponent } from './front/components/layout/front-layout/front-layout.component';
+import { HomeComponent } from './front/components/home/home.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,17 @@ const routes: Routes = [
     canActivate:[GuestGuardRouteGuard],
     loadChildren: () => import(`./backend/components/auth/signin/signin.module`).then(m => m.SigninModule)
   },
+  {
+    path:'',
+    component:FrontLayoutComponent,
+    children:[
+      {
+        path:'',
+        component: HomeComponent
+      }
+    ]
+  },
+
   {
     path:'admin',
     component:AdminLayoutComponent,
