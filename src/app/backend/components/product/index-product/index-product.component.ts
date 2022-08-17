@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class IndexProductComponent implements OnInit {
   loading : boolean = false;
   
   displayedColumns: string[] = ['title', 'category', 'price', 'actions'];
-  dataSource = new MatTableDataSource<any>(this.productData);
+  dataSource = new MatTableDataSource<Product>(this.productData);
  
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,9 +25,19 @@ export class IndexProductComponent implements OnInit {
      public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this._productService.listOfProduct().subscribe((res:any) => {
-      console.log(res)
-      this.dataSource.data = res.products
+    const productObs$ = this._productService.listOfProduct()
+
+    const loading$  = productObs$[0]
+    const error$   = productObs$[1]
+    const products$ = productObs$[2]
+
+    loading$.subscribe(data => this.loading = data)
+    error$.subscribe(data => this.error = data)
+
+    products$.subscribe((res:any) => {
+      if(res.length != 0){
+         this.dataSource.data = res
+      }
     })
   }
 
